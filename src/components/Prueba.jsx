@@ -1,12 +1,19 @@
 import { useContext } from "react"
 
-import { BocaditosContext } from '../Context'
+import { CarritoContext } from '../Context'
 
 const Prueba = () => {
-  const [bocaditos, setBocaditos] = useContext(BocaditosContext)
+  const [carrito] = useContext(CarritoContext)
 
   return (
-    <div>{ bocaditos.clicks }</div>
+    <div>
+      <h1>Carrito de compras:</h1>
+      {
+        carrito.map(c => (
+          <div key={c.id} > { c.name } </div>
+        ))
+      }
+    </div>
   )
 }
 
